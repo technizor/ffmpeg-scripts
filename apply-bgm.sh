@@ -34,8 +34,8 @@ function process () {
   echo in_vid_norm: "$in_vid_norm"
   echo in_bgm_norm: "$in_bgm_norm"
 
-  normalize -i "$in_vid" -o "$in_vid_norm" -l -15
-  normalize -i "$in_bgm" -o "$in_bgm_norm"
+  normalize -i "$in_vid" -o "$in_vid_norm" -l -25
+  normalize -i "$in_bgm" -o "$in_bgm_norm" -l -20
 
   splice -v "$in_vid_norm" -b "$in_bgm_norm" -o "$out"
 
@@ -47,7 +47,7 @@ function process () {
 
 function normalize () {
   # Named Arguments Processing
-  local in_file out_file level=-10
+  local in_file out_file level=-20
 
   local opt OPTARG OPTIND
   while getopts 'i:o:l:' opt
